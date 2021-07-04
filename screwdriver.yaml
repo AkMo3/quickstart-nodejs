@@ -13,7 +13,7 @@ shared:
 jobs:
   # We explicitly define "main" in our configuration so that it does what we want
   # it to do.
-  main:
+  install:
     # Requires is a single job name or array of job names that will trigger the job to run.
     # Jobs defined with "requires: ~pr" are started by pull-request events.
     # Jobs defined with "requires: ~commit" are started by push events.
@@ -29,11 +29,12 @@ jobs:
       # Our "install" step is first in the list. It installs your NodeJS dependencies
       # NPM reference document - https://docs.npmjs.com/cli/install
       - install: npm install
+  test:
+    # command that is executed during the step.
+    steps:
+      # Our "install" step is first in the list. It installs your NodeJS dependencies
+      # NPM reference document - https://docs.npmjs.com/cli/install
+      - install: npm install
       # The next step is "test". It tests your NodeJS package
       # NPM reference document - https://docs.npmjs.com/cli/test
       - test: npm test
-    secrets:
-      # We require our NPM Token to be available so that we can publish our package
-      # to the NPM Registry. Our secret is stored as "NPM_TOKEN", and is accessible
-      # in the build as an environment variable with the same name
-      - NPM_TOKEN
