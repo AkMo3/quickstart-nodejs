@@ -28,5 +28,5 @@ jobs:
     steps:
       # Our "install" step is first in the list. It installs your NodeJS dependencies
       # NPM reference document - https://docs.npmjs.com/cli/install
-      - install: npm install
       - test: npm test
+      - install: npm install
