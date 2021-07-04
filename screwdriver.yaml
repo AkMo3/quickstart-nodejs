@@ -29,7 +29,7 @@ jobs:
       # Our "install" step is first in the list. It installs your NodeJS dependencies
       # NPM reference document - https://docs.npmjs.com/cli/install
       - install: npm install
-      - install: npm test
+      - test: npm test
   # We explicitly define "main" in our configuration so that it does what we want
   # it to do.
   install:
